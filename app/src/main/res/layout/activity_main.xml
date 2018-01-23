@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quiz_background"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/pictures_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/layout_margin2"
+        android:layout_marginRight="@dimen/layout_margin2"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:layout_weight="0.5"
+            android:alpha="1"
+            android:src="@drawable/quiz8"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@color/quiz_background"
+            android:scaleType="fitCenter"
+            android:src="@drawable/java8"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/name"
+        style="@style/name_field_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pictures_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/layout_margin4"
+        android:hint="@string/enter_your_name_here"
+        android:inputType="textCapWords"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/hit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/layout_margin4"
+        android:text="@string/hit_the_button_to_start_the_quiz"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_size6" />
+
+    <ImageButton
+        android:id="@+id/start_Quiz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/hit"
+        android:alpha="1"
+        android:background="@color/quiz_background"
+        android:onClick="startQuiz"
+        android:scaleType="fitCenter"
+        android:src="@drawable/quiz17"
+        tools:ignore="ContentDescription" />
+
+</RelativeLayout>

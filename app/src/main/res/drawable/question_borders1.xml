@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid
+        android:color="@color/question_background1"> </solid>
+    <stroke
+        android:width="@dimen/border"
+        android:color="@color/question_border1_color"> </stroke>
+    <corners
+        android:color="@color/question_border1_color"
+        android:radius="@dimen/padding1"> </corners>
+</shape>

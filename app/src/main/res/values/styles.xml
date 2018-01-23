@@ -1,0 +1,54 @@
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Name field style -->
+    <style name="name_field_style">
+        <item name="android:layout_marginLeft">@dimen/layout_margin1</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin1</item>
+        <item name="android:textSize">@dimen/text_size2</item>
+        <item name="android:gravity">bottom</item>
+    </style>
+
+    <!-- Quiz title style -->
+    <style name="quiz_title_style">
+        <item name="android:layout_marginBottom">@dimen/padding1</item>
+        <item name="android:layout_marginTop">@dimen/padding1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/text_size2</item>
+    </style>
+
+    <!-- Questions style -->
+    <style name="questions_style">
+        <item name="android:textSize">@dimen/text_size4</item>
+            <item name="android:gravity">left</item>
+            <item name="android:padding">@dimen/padding3</item>
+            <item name="android:layout_margin">@dimen/layout_margin3</item>
+            <item name="android:textColor">@color/question_text_color</item>
+    </style>
+
+    <!--  Radio Group Buttons style -->
+    <style name="radio_group_style">
+        <item name="android:layout_marginLeft">@dimen/layout_margin4</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin4</item>
+        <item name="android:layout_marginBottom">@dimen/layout_margin1</item>
+    </style>
+
+    <!-- Edit text style -->
+    <style name="edit_text_style">
+        <item name="android:textSize">@dimen/text_size4</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">@dimen/padding3</item>
+        <item name="android:layout_margin">@dimen/layout_margin1</item>
+        <item name="android:textColor">@color/question_text_color</item>
+    </style>
+
+    </resources>

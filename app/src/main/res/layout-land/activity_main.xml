@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/quiz_background"
+        android:scaleType="fitStart"
+        android:src="@drawable/java9"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/layout_margin2"
+        android:layout_marginRight="@dimen/layout_margin2"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        tools:ignore="RelativeOverlap">
+
+        <EditText
+            android:id="@+id/name"
+            style="@style/name_field_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/layout_margin1"
+            android:layout_weight="0.5"
+            android:hint="@string/enter_your_name_here"
+            android:inputType="textCapWords"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textStyle="bold|italic" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin2"
+            android:layout_weight="0.1"
+            android:alpha="1"
+            android:background="#FFFFFF"
+            android:src="@drawable/quiz8"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/layout_margin2"
+        android:layout_marginEnd="@dimen/layout_margin2"
+        android:layout_marginRight="@dimen/layout_margin2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/hit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/layout_margin1"
+            android:layout_marginRight="@dimen/layout_margin1"
+            android:layout_toLeftOf="@+id/start_Quiz"
+            android:layout_toStartOf="@+id/start_Quiz"
+            android:minLines="2"
+            android:text="@string/hit_the_button_to_start_the_quiz"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/start_Quiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:alpha="1"
+            android:background="@android:color/transparent"
+            android:onClick="startQuiz"
+            android:scaleType="centerInside"
+            android:src="@drawable/quiz18"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

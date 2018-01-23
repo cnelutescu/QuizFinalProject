@@ -1,0 +1,101 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Quiz Final Project</string>
+
+    <!-- Quiz Questions text -->
+    <string name="question1">What is the correct syntax for main method of a java class?</string>
+    <string name="question2">What is the size of long variable?</string>
+    <string name="question3">What is the default value of short variable?</string>
+    <string name="question4">Which of the following is true about public access modifier?</string>
+    <string name="question5">How will you describe Java?</string>
+    <string name="question6">What will the following code segment print? \nfor(int i = 1; i &lt;= 4; i = i + 3);\nSystem.out.println(i);</string>
+    <string name="question7">Which of the following statements generates a compiler error? \n(Choose all that apply)</string>
+    <string name="question8">Which of the following statements are true? \n(Choose all that apply)</string>
+    <string name="question9">Which of the following statements are not true? \n(Choose all that apply)</string>
+    <string name="question10">What package is automatically imported in every java program?</string>
+
+    <!-- Quiz Answers text -->
+    <string name="answer1_1" translatable="false">public static int main(String[] args)</string>
+    <string name="answer1_2" translatable="false">public int main(String[] args)</string>
+    <string name="answer1_3" translatable="false">public static void main(String[] args)</string>
+    <string name="answer1_4">None of the above</string>
+
+    <string name="answer2_1">8 bit</string>
+    <string name="answer2_2">16 bit</string>
+    <string name="answer2_3">32 bit</string>
+    <string name="answer2_4">64 bit</string>
+
+    <string name="answer3_1" translatable="false">0.0</string>
+    <string name="answer3_2" translatable="false">0</string>
+    <string name="answer3_3" translatable="false">null</string>
+    <string name="answer3_4">undefined</string>
+
+    <string name="answer4_1">Variables, methods and constructors which are declared public can be accessed by any class lying in same package</string>
+    <string name="answer4_2">Variables, methods and constructors which are declared public in the superclass can be accessed only by its child class</string>
+    <string name="answer4_3">Variables, methods and constructors which are declared public can be accessed by any class</string>
+    <string name="answer4_4">None of the above</string>
+
+    <string name="answer5_1">Programming Language</string>
+    <string name="answer5_2">Platform</string>
+    <string name="answer5_3">Both Programming Language and Platform</string>
+    <string name="answer5_4">Abstract Machine</string>
+
+    <string name="answer6_1" translatable="false">14</string>
+    <string name="answer6_2" translatable="false">7</string>
+    <string name="answer6_3">Nothing. It will give compile-time error.</string>
+    <string name="answer6_4" translatable="false">4</string>
+
+    <string name="answer7_1" translatable="false">short numPets = 5;</string>
+    <string name="answer7_2" translatable="false">int numGrains = 5.6;</string>
+    <string name="answer7_3" translatable="false">String name = "Scruffy";</string>
+    <string name="answer7_4" translatable="false">numGrains.length();</string>
+
+    <string name="answer8_1">An instance variable of type int defaults to null</string>
+    <string name="answer8_2">An instance variable of type String defaults to null</string>
+    <string name="answer8_3">An instance variable of type double defaults to 0.0</string>
+    <string name="answer8_4">An instance variable of type String defaults to 0.0</string>
+
+    <string name="answer9_1">Java has pointers to specific locations in memory</string>
+    <string name="answer9_2">Java is a procedural language</string>
+    <string name="answer9_3">Java is an object-oriented language</string>
+    <string name="answer9_4">Java is a functional programming language</string>
+
+    <!-- Always use caps for this answer -->
+    <string name="answer10_1" translatable="false">JAVA.LANG</string>
+
+    <string name="quiz_title">Java Quiz</string>
+    <string name="msg_missing_name">Please enter your name before start the quiz!</string>
+    <string name="q10_hint">Type your answer here</string>
+    <string name="activity_not_resolved">Can not resolve Activity!</string>
+
+    <!--
+      The user's Name for Quiz results message. It will be shown in the format of "Amy you have successfully submitted the quiz" where Amy is the
+      user's name. [CHAR LIMIT=NONE]
+    -->
+    <string name="submit_success"><xliff:g id="name" example="Amy">%s</xliff:g> you have submitted the quiz in </string>
+    <string name="nr_correct_answers">correct answer/s out of</string>
+    <string name="nr_incorrect_answers">incorrect answer/s out of</string>
+    <string name="nr_not_answered">answer/s not given out of</string>
+    <string name="incorrect_answers">incorrect answer/s</string>
+    <string name="correct_answered">Correct answered</string>
+    <string name="incorrect_answered">Incorrect answered</string>
+    <string name="review_results">Review results:</string>
+    <string name="question_nr">Question #</string>
+    <string name="correct_answer">Correct answer:</string>
+    <string name="selected_answer">Selected answer:</string>
+    <string name="milliseconds">milliseconds</string>
+    <string name="seconds">second/s</string>
+    <string name="minutes">minute/s</string>
+    <string name="hours">hour/s</string>
+    <string name="answer_not_given">Answer not given</string>
+    <string name="processing_submit">Processing!</string>
+    <string name="your_score">Your score:</string>
+    <string name="enter_your_name_here">Enter your name here</string>
+    <string name="hit_the_button_to_start_the_quiz">Hit the button to start the quiz</string>
+    <string name="send_error">Submit the quiz before Send results!</string>
+    <string name="message_question_not_answered">Question/s not answered:</string>
+    <string name="want_to_continue">do you want to Submit the quiz anyway?</string>
+    <string name="warning">Warning! Not all questions have answer.</string>
+    <string name="positive_button">Yes</string>
+    <string name="negative_button">No</string>
+
+</resources>
