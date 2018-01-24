@@ -64,4 +64,7 @@
     <string name="warning">"Atenție! Nu ai răspuns la toate întrebările. "</string>
     <string name="positive_button">Da</string>
     <string name="negative_button">Nu</string>
+    <string name="time_expired">"A expirat timpul! Poți continua și finaliza testul (Submit) când dorești. "</string>
+    <string name="warning_time_expire">Avertizare! Timpul alcat rezolvării testului va expira peste un minut.</string>
+    <string name="quiz_started">Testul a început! Ai 10 minute să-l finalizezi (Submit quiz).</string>
 </resources>
