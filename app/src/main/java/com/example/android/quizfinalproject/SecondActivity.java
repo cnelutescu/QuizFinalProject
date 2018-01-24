@@ -25,7 +25,6 @@ public class SecondActivity extends AppCompatActivity {
     int nrInCorrectAnswers = 0;             // count number of incorrect answers
     int nrAnswersNotGiven = 0;              // count number of answers not given
     boolean pressSubmit = false;              // Submit quiz button not pressed
-    int toastDurationInMilliSeconds = 10000;// Set the toast duration for 10 seconds
     // integer array of id's of image views for question numbers:
     int[] question_numbers_ID = {R.id.img_q1, R.id.img_q2, R.id.img_q3, R.id.img_q4, R.id.img_q5, R.id.img_q6, R.id.img_q7, R.id.img_q8, R.id.img_q9, R.id.img_q10};
     // integer array of id's of text views for question texts:
@@ -68,7 +67,6 @@ public class SecondActivity extends AppCompatActivity {
     int[] answers_ID3 = {R.id.answer10_1};
     // integer array of id's of for the text of correct answers for free text response question type:
     int[] correct_answers_ID3 = {R.string.answer10_1};
-    CountDownTimer toastCountDown;          // declare object toast count down counter
     long lStartTime;    // long start time in milliseconds
     long lEndTime;      // long end time in milliseconds
     long output;        // long difference in milliseconds
@@ -76,7 +74,11 @@ public class SecondActivity extends AppCompatActivity {
     boolean all_questions = true;           // = true if all questions have an answer
     boolean yesButton = false;              // = true for yes confirmation, = false for Cancel submit quiz
     // toast to display final score message
-    private Toast mToastToShow;
+    CountDownTimer toastCountDown;              // declare object for toast count down counter
+    int toastDurationInMilliSeconds = 7000;     // Set the toast duration for 7 seconds
+    CountDownTimer quizTimeCountDown;           // declare object for quiz time count down counter
+    int quizMaxTime = 600000;                   // quiz max time duration in milliseconds (10 minutes)
+    private Toast quizToastStartQuiz, mToastToShow, quizToastTimeExpired, quizToastWarningTime;
 
     //---------------------------------------------------------------
 
@@ -109,6 +111,27 @@ public class SecondActivity extends AppCompatActivity {
                 startNewQuiz();
             }
         });
+        // Set the toast START quiz message
+        quizToastStartQuiz = Toast.makeText(this, R.string.quiz_started, Toast.LENGTH_LONG);
+        quizToastStartQuiz.show();          // show toast Start quiz
+        // Set the toast time expired message
+        quizToastTimeExpired = Toast.makeText(this, R.string.time_expired, Toast.LENGTH_LONG);
+        // Set the toast 1 minute left warning message
+        quizToastWarningTime = Toast.makeText(this, R.string.warning_time_expire, Toast.LENGTH_LONG);
+        // Set the countdown timer to display the toast message longer (7 sec. instead of 3.5 sec.)
+        quizTimeCountDown = new CountDownTimer(quizMaxTime, 1000 /*Tick duration*/) {
+            public void onTick(long millisUntilFinished) {  // one tick at each sec. (1000 milliseconds)
+                // EditText editText = findViewById(answers_ID3[0]);                   // get ID of edit text
+                // editText.setText("Seconds remaining: " + millisUntilFinished / 1000);
+                if ((millisUntilFinished < 60000) & (millisUntilFinished > 58000)) {      // if one minute left?
+                    quizToastWarningTime.show();        // show toast quiz time will expire warning
+                }
+            }
+            public void onFinish() {
+                quizToastTimeExpired.show();            // show toast quiz time expired
+            }
+        };
+        quizTimeCountDown.start();                  // start quiz time counter
     }
 
     // Method to process the start new quiz (Start new button click)
@@ -227,7 +250,7 @@ public class SecondActivity extends AppCompatActivity {
             // Set the toast message duration
             mToastToShow = Toast.makeText(this, quizResultsMessage, Toast.LENGTH_LONG);
             // Set the countdown timer to display the toast message longer (7 sec. instead of 3.5 sec.)
-            toastCountDown = new CountDownTimer(toastDurationInMilliSeconds, 700 /*Tick duration*/) {
+            toastCountDown = new CountDownTimer(toastDurationInMilliSeconds, 1000 /*Tick duration*/) {
                 public void onTick(long millisUntilFinished) {
                     mToastToShow.show();    // restart the toast after the Toast.LENGTH_LONG duration expired
                 }

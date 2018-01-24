@@ -97,5 +97,8 @@
     <string name="warning">Warning! Not all questions have answer.</string>
     <string name="positive_button">Yes</string>
     <string name="negative_button">No</string>
+    <string name="time_expired">Quiz time expired! You can continue and submit the quiz when finished.</string>
+    <string name="warning_time_expire">Warning! Quiz time will expire in 1 minute.</string>
+    <string name="quiz_started">Quiz started! You have 10 minutes to Submit the quiz.</string>
 
 </resources>
