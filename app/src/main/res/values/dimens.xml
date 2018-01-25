@@ -18,5 +18,6 @@
     <dimen name="text_size2">24sp</dimen>
     <dimen name="text_size4">16sp</dimen>
     <dimen name="text_size6">14sp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
 
 </resources>
