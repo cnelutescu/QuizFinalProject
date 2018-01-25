@@ -36,7 +36,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -52,7 +52,7 @@
                 <TextView
                     android:id="@+id/q1_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:maxLines="5"
@@ -60,7 +60,7 @@
 
                 <ImageView
                     android:id="@+id/img_q1"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/layout_margin1"
@@ -121,7 +121,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -137,24 +137,24 @@
                 <TextView
                     android:id="@+id/q2_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question2" />
 
                 <ImageView
                     android:id="@+id/img_q2"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <RadioGroup
@@ -204,7 +204,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -220,24 +220,24 @@
                 <TextView
                     android:id="@+id/q3_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question3" />
 
                 <ImageView
                     android:id="@+id/img_q3"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <RadioGroup
@@ -287,7 +287,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -303,24 +303,24 @@
                 <TextView
                     android:id="@+id/q4_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question4" />
 
                 <ImageView
                     android:id="@+id/img_q4"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/notok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <RadioGroup
@@ -370,7 +370,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -386,24 +386,24 @@
                 <TextView
                     android:id="@+id/q5_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question5" />
 
                 <ImageView
                     android:id="@+id/img_q5"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/notok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <RadioGroup
@@ -453,7 +453,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -469,24 +469,24 @@
                 <TextView
                     android:id="@+id/q6_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question6" />
 
                 <ImageView
                     android:id="@+id/img_q6"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/notok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <RadioGroup
@@ -536,7 +536,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -552,24 +552,24 @@
                 <TextView
                     android:id="@+id/q7_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question7" />
 
                 <ImageView
                     android:id="@+id/img_q7"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/notok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <LinearLayout
@@ -625,7 +625,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -641,24 +641,24 @@
                 <TextView
                     android:id="@+id/q8_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question8" />
 
                 <ImageView
                     android:id="@+id/img_q8"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/notok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <LinearLayout
@@ -716,7 +716,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -732,24 +732,24 @@
                 <TextView
                     android:id="@+id/q9_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question9" />
 
                 <ImageView
                     android:id="@+id/img_q9"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/notok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <LinearLayout
@@ -806,7 +806,7 @@
                 android:padding="@dimen/layout_margin1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/layout_margin1"
@@ -822,24 +822,24 @@
                 <TextView
                     android:id="@+id/q10_question"
                     style="@style/questions_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:text="@string/question10" />
 
                 <ImageView
                     android:id="@+id/img_q10"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/zero_dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_margin1"
                     android:layout_marginRight="@dimen/layout_margin1"
                     android:layout_weight="0.7"
                     android:alpha="1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/notok"
                     android:visibility="invisible"
-                    tools:ignore="ContentDescription"
-                    android:layout_marginEnd="@dimen/layout_margin1" />
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <EditText
@@ -848,7 +848,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/q10_hint"
-                android:inputType="textCapCharacters"
+                android:inputType="text"
                 android:textAlignment="center"
                 android:textAllCaps="true" />
         </LinearLayout>
