@@ -54,8 +54,8 @@
                     style="@style/questions_style"
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
+                    android:tag="type_radioButtons"
                     android:layout_weight="5"
-                    android:maxLines="5"
                     android:text="@string/question1" />
 
                 <ImageView
@@ -82,24 +82,31 @@
                 android:orientation="vertical">
 
                 <RadioButton
+                    android:id="@+id/answer1_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer1_1" />
 
                 <RadioButton
+                    android:id="@+id/answer1_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer1_2" />
 
                 <RadioButton
                     android:id="@+id/answer1_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="true"
                     android:text="@string/answer1_3" />
 
                 <RadioButton
+                    android:id="@+id/answer1_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer1_4" />
             </RadioGroup>
         </LinearLayout>
@@ -139,6 +146,7 @@
                     style="@style/questions_style"
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
+                    android:tag="type_radioButtons"
                     android:layout_weight="5"
                     android:text="@string/question2" />
 
@@ -165,24 +173,31 @@
                 android:orientation="vertical">
 
                 <RadioButton
+                    android:id="@+id/answer2_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer2_1" />
 
                 <RadioButton
+                    android:id="@+id/answer2_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer2_2" />
 
                 <RadioButton
+                    android:id="@+id/answer2_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer2_3" />
 
                 <RadioButton
                     android:id="@+id/answer2_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="true"
                     android:text="@string/answer2_4" />
             </RadioGroup>
         </LinearLayout>
@@ -222,6 +237,7 @@
                     style="@style/questions_style"
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
+                    android:tag="type_radioButtons"
                     android:layout_weight="5"
                     android:text="@string/question3" />
 
@@ -248,24 +264,31 @@
                 android:orientation="vertical">
 
                 <RadioButton
+                    android:id="@+id/answer3_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer3_1" />
 
                 <RadioButton
                     android:id="@+id/answer3_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="true"
                     android:text="@string/answer3_2" />
 
                 <RadioButton
+                    android:id="@+id/answer3_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer3_3" />
 
                 <RadioButton
+                    android:id="@+id/answer3_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer3_4" />
             </RadioGroup>
         </LinearLayout>
@@ -305,6 +328,7 @@
                     style="@style/questions_style"
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
+                    android:tag="type_radioButtons"
                     android:layout_weight="5"
                     android:text="@string/question4" />
 
@@ -331,24 +355,31 @@
                 android:orientation="vertical">
 
                 <RadioButton
+                    android:id="@+id/answer4_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer4_1" />
 
                 <RadioButton
+                    android:id="@+id/answer4_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer4_2" />
 
                 <RadioButton
                     android:id="@+id/answer4_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="true"
                     android:text="@string/answer4_3" />
 
                 <RadioButton
+                    android:id="@+id/answer4_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer4_4" />
             </RadioGroup>
         </LinearLayout>
@@ -388,6 +419,7 @@
                     style="@style/questions_style"
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
+                    android:tag="type_radioButtons"
                     android:layout_weight="5"
                     android:text="@string/question5" />
 
@@ -414,24 +446,31 @@
                 android:orientation="vertical">
 
                 <RadioButton
+                    android:id="@+id/answer5_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer5_1" />
 
                 <RadioButton
+                    android:id="@+id/answer5_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer5_2" />
 
                 <RadioButton
                     android:id="@+id/answer5_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="true"
                     android:text="@string/answer5_3" />
 
                 <RadioButton
+                    android:id="@+id/answer5_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer5_4" />
             </RadioGroup>
         </LinearLayout>
@@ -471,6 +510,7 @@
                     style="@style/questions_style"
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
+                    android:tag="type_radioButtons"
                     android:layout_weight="5"
                     android:text="@string/question6" />
 
@@ -497,24 +537,31 @@
                 android:orientation="vertical">
 
                 <RadioButton
+                    android:id="@+id/answer6_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer6_1" />
 
                 <RadioButton
                     android:id="@+id/answer6_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="true"
                     android:text="@string/answer6_2" />
 
                 <RadioButton
+                    android:id="@+id/answer6_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer6_3" />
 
                 <RadioButton
+                    android:id="@+id/answer6_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:tag="false"
                     android:text="@string/answer6_4" />
             </RadioGroup>
         </LinearLayout>
@@ -555,6 +602,7 @@
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
+                    android:tag="type_checkBoxes"
                     android:text="@string/question7" />
 
                 <ImageView
@@ -583,6 +631,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="false"
                     android:text="@string/answer7_1" />
 
                 <CheckBox
@@ -590,6 +639,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="true"
                     android:text="@string/answer7_2" />
 
                 <CheckBox
@@ -597,6 +647,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="false"
                     android:text="@string/answer7_3" />
 
                 <CheckBox
@@ -604,6 +655,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="true"
                     android:text="@string/answer7_4" />
             </LinearLayout>
         </LinearLayout>
@@ -643,6 +695,7 @@
                     style="@style/questions_style"
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
+                    android:tag="type_checkBoxes"
                     android:layout_weight="5"
                     android:text="@string/question8" />
 
@@ -672,6 +725,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="false"
                     android:text="@string/answer8_1"
                     tools:ignore="TooManyViews" />
 
@@ -680,6 +734,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="true"
                     android:text="@string/answer8_2" />
 
                 <CheckBox
@@ -687,6 +742,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="true"
                     android:text="@string/answer8_3" />
 
                 <CheckBox
@@ -694,6 +750,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="false"
                     android:text="@string/answer8_4" />
             </LinearLayout>
 
@@ -735,6 +792,7 @@
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
+                    android:tag="type_checkBoxes"
                     android:text="@string/question9" />
 
                 <ImageView
@@ -763,6 +821,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="true"
                     android:text="@string/answer9_1" />
 
                 <CheckBox
@@ -770,6 +829,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="true"
                     android:text="@string/answer9_2" />
 
                 <CheckBox
@@ -777,6 +837,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="false"
                     android:text="@string/answer9_3" />
 
                 <CheckBox
@@ -784,6 +845,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:tag="true"
                     android:text="@string/answer9_4" />
             </LinearLayout>
 
@@ -825,6 +887,7 @@
                     android:layout_width="@dimen/zero_dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
+                    android:tag="type_edit_text"
                     android:text="@string/question10" />
 
                 <ImageView
@@ -849,11 +912,12 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/q10_hint"
                 android:inputType="text"
+                android:tag="answer10_1"
                 android:textAlignment="center"
                 android:textAllCaps="true" />
         </LinearLayout>
 
-        <!-- Submit and Back buttons -->
+        <!-- Submit, Send and Back buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

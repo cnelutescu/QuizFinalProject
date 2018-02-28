@@ -18,39 +18,32 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SecondActivity extends AppCompatActivity {
 
-    int nrCorrectAnswers = 0;               // count number of correct answers
-    int nrInCorrectAnswers = 0;             // count number of incorrect answers
-    int nrAnswersNotGiven = 0;              // count number of answers not given
-    boolean pressSubmit = false;              // Submit quiz button not pressed
+    int nrCorrectAnswers;               // count number of correct answers
+    int nrInCorrectAnswers;             // count number of incorrect answers
+    int nrAnswersNotGiven;              // count number of answers not given
+    boolean pressSubmit = false;        // Submit quiz button not pressed
     // integer array of id's of image views for question numbers:
     int[] question_numbers_ID = {R.id.img_q1, R.id.img_q2, R.id.img_q3, R.id.img_q4, R.id.img_q5, R.id.img_q6, R.id.img_q7, R.id.img_q8, R.id.img_q9, R.id.img_q10};
     // integer array of id's of text views for question texts:
     int[] question_texts_ID = {R.id.q1_question, R.id.q2_question, R.id.q3_question, R.id.q4_question, R.id.q5_question, R.id.q6_question, R.id.q7_question, R.id.q8_question, R.id.q9_question, R.id.q10_question};
-    // integer array to define the type of questions: 1 = radio button, 2 = checkbox, 3 = free text response:
-    int[] question_type = {1, 1, 1, 1, 1, 1, 2, 2, 2, 3};
-    // integer array to define the answer status: 0 = incorrect, 1 = correct
-    int[] answerStatus = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-
     // integer array of id's of RadioGroups for multiple choice question numbers:
     int[] radioGroups_ID = {R.id.radio_group1, R.id.radio_group2, R.id.radio_group3, R.id.radio_group4, R.id.radio_group5, R.id.radio_group6};
+    // 2 dimensional integer array of id's of radio buttons:
+    int[][] answers_ID1 = new int[][]{
+            {R.id.answer1_1, R.id.answer1_2, R.id.answer1_3, R.id.answer1_4},
+            {R.id.answer2_1, R.id.answer2_2, R.id.answer2_3, R.id.answer2_4},
+            {R.id.answer3_1, R.id.answer3_2, R.id.answer3_3, R.id.answer3_4},
+            {R.id.answer4_1, R.id.answer4_2, R.id.answer4_3, R.id.answer4_4},
+            {R.id.answer5_1, R.id.answer5_2, R.id.answer5_3, R.id.answer5_4},
+            {R.id.answer6_1, R.id.answer6_2, R.id.answer6_3, R.id.answer6_4},
+    };
     // integer array of id's of radio button for correct answers:
-    int[] correct_answers_ID = {R.id.answer1_3, R.id.answer2_4, R.id.answer3_2, R.id.answer4_3, R.id.answer5_3, R.id.answer6_2};
-    // array of strings with the text of checked answers
-    String[] checked_answers_text = new String[10];     // store the given answers texts at run time
-    // array of strings with the text of correct answers
-    String[] correct_answers_text = new String[10];     // store the correct answers texts at run time
-
-    // array of strings with the text of questions
-    String[] questions_text = new String[10];
-    // The name under which the quiz is taken
-    String name;
-    // The message text to display on toast
-    String quizResultsMessage = "";
-    // The message text to send by email quiz results
-    String messageSend;
+    int[] correct_answers_ID1 = {0, 0, 0, 0, 0, 0};
     // 2 dimensional integer array of id's of checkboxes:
     int[][] answers_ID2 = new int[][]{
             {R.id.answer7_1, R.id.answer7_2, R.id.answer7_3, R.id.answer7_4},
@@ -58,15 +51,31 @@ public class SecondActivity extends AppCompatActivity {
             {R.id.answer9_1, R.id.answer9_2, R.id.answer9_3, R.id.answer9_4},
     };
     // 2 dimensional boolean array for state of checkboxes (0-unchecked, 1=checked):
-    boolean[][] correct_answers_ID2 = new boolean[][]{
-            {false, true, false, true},
-            {false, true, true, false},
-            {true, true, false, true}
-    };
+    boolean[][] correct_answers_ID2 = new boolean[3][4];
     // integer array of id's of Edit text views answers for free text response question type:
     int[] answers_ID3 = {R.id.answer10_1};
-    // integer array of id's of for the text of correct answers for free text response question type:
-    int[] correct_answers_ID3 = {R.string.answer10_1};
+    // array of strings with the text of correct answers for edit text questions
+    String[] correctAnswer3 = new String[10];     // store the correct answers texts of edit text questions at run time
+
+    // integer array to define the type of questions: 1 = radio button, 2 = checkbox, 3 = free text response:
+    int[] question_type = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    // integer array to define the answer status: 0 = incorrect, 1 = correct
+    int[] answerStatus = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+    // array of strings with the text of checked answers
+    String[] checked_answers_text = new String[10];     // store the given answers texts at run time
+    // array of strings with the text of correct answers
+    String[] correct_answers_text = new String[10];     // store the correct answers texts at run time
+    // array of strings with the text of questions
+    String[] questions_text = new String[10];
+
+    // The name under which the quiz is taken
+    String name;
+    // The message text to display on toast
+    String quizResultsMessage = "";
+    // The message text to send by email quiz results
+    String messageSend;
+
     long lStartTime;    // long start time in milliseconds
     long lEndTime;      // long end time in milliseconds
     long output;        // long difference in milliseconds
@@ -78,7 +87,9 @@ public class SecondActivity extends AppCompatActivity {
     int toastDurationInMilliSeconds = 7000;     // Set the toast duration for 7 seconds
     CountDownTimer quizTimeCountDown;           // declare object for quiz time count down counter
     int quizMaxTime = 600000;                   // quiz max time duration in milliseconds (10 minutes)
-    private Toast quizToastStartQuiz, mToastToShow, quizToastTimeExpired, quizToastWarningTime;
+    private Toast mToastToShow;
+    private Toast quizToastTimeExpired;
+    private Toast quizToastWarningTime;
 
     //---------------------------------------------------------------
 
@@ -112,7 +123,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
         // Set the toast START quiz message
-        quizToastStartQuiz = Toast.makeText(this, R.string.quiz_started, Toast.LENGTH_LONG);
+        Toast quizToastStartQuiz = Toast.makeText(this, R.string.quiz_started, Toast.LENGTH_LONG);
         quizToastStartQuiz.show();          // show toast Start quiz
         // Set the toast time expired message
         quizToastTimeExpired = Toast.makeText(this, R.string.time_expired, Toast.LENGTH_LONG);
@@ -127,11 +138,96 @@ public class SecondActivity extends AppCompatActivity {
                     quizToastWarningTime.show();        // show toast quiz time will expire warning
                 }
             }
+
             public void onFinish() {
                 quizToastTimeExpired.show();            // show toast quiz time expired
             }
         };
         quizTimeCountDown.start();                  // start quiz time counter
+        // find and store the questions type
+        for (int k = 0; k < question_type.length; k++) {
+            TextView textView = findViewById(question_texts_ID[k]);  // get ID of question text
+            String nr = "" + (k + 1);
+            Object ddd = textView.getTag();
+            if (ddd == null) {    // if android:tag is not defined for current question:
+                // Set the toast Error in second_activity.xml at question k tag not found message
+                quizToastStartQuiz = Toast.makeText(this, getString(R.string.error_in_xml, nr), Toast.LENGTH_LONG);
+                quizToastStartQuiz.show();          // show toast Start quiz
+                question_type[k] = 1;                               // store ID=1 of type for question
+                //Timer Schedule function for delay 5 seconds:
+                new Timer().schedule(
+                        new TimerTask() {
+                            @Override
+                            public void run() {
+                                // Actions to do after 5 seconds
+                                finish();              // finish second activity after 5 seconds
+                            }
+                        },
+                        5000
+                );
+            } else {
+                if (textView.getTag().equals("type_radioButtons")) {
+                    question_type[k] = 1;                               // store ID=1 of type for question
+                } else if (textView.getTag().equals("type_checkBoxes")) {
+                    question_type[k] = 2;                               // store ID=2 of type for question
+                } else if (textView.getTag().equals("type_edit_text")) {
+                    question_type[k] = 3;                               // store ID=2 of type for question
+                } else { // Set the toast Error in second_activity.xml at question k incorrect tag message
+                    quizToastStartQuiz = Toast.makeText(this, getString(R.string.error_in_xml, nr), Toast.LENGTH_LONG);
+                    quizToastStartQuiz.show();          // show toast Start quiz
+                    question_type[k] = 1;                               // store ID=1 of type for question
+                    //Timer Schedule function for delay 5 seconds:
+                    new Timer().schedule(
+                            new TimerTask() {
+                                @Override
+                                public void run() {
+                                    // Actions to do after 5 seconds
+                                    finish();              // finish second activity after 5 seconds
+                                }
+                            },
+                            5000
+                    );
+                }
+            }
+        }
+        int x = 0;                          // init counter for number of radio button questions
+        int i = 0;                          // init counter for number of checkbox questions
+        int j = 0;                          // init counter for number of free text questions
+        for (int k = 0; k < question_type.length; k++) {
+            switch (question_type[k]) {
+                case 1:
+                    // find and store the correct answers for radioButtons
+                    for (int n = 0; n < 4; n++) {
+                        RadioButton radioButton = findViewById(answers_ID1[x][n]);     // get radioButton n
+                        if (radioButton.getTag().equals("true")) {
+                            correct_answers_ID1[x] = answers_ID1[x][n]; // store ID of correct answer
+                        }
+                    }
+                    x++;
+                    break;
+                case 2:
+                    // find and store the correct answers for checkBoxes
+                    for (int n = 0; n < 4; n++) {
+                        CheckBox checkBox = findViewById(answers_ID2[i][n]);     // get check box n
+                        if (checkBox.getTag().equals("true")) {
+                            correct_answers_ID2[i][n] = true;
+                        } else {
+                            correct_answers_ID2[i][n] = false;
+                        }
+                    }
+                    i++;
+                    break;
+                case 3:
+                    // find and store the correct answers for edit text questions
+                    for (int n = 0; n < 1; n++) {
+                        EditText editText = findViewById(answers_ID3[j]);     // get ID of edit text
+                        String stringNameOfResource = editText.getTag().toString();
+                        correctAnswer3[j] = getStringResourceByName(stringNameOfResource);
+                    }
+                    j++;
+                    break;
+            }
+        }
     }
 
     // Method to process the start new quiz (Start new button click)
@@ -187,14 +283,12 @@ public class SecondActivity extends AppCompatActivity {
             }
         }
         all_questions = true;           // = true if all questions have an answer
-//        String messageQuestionsNotAnswered = getString(R.string.message_question_not_answered);
         StringBuilder sb = new StringBuilder();
         sb.append(getString(R.string.message_question_not_answered));
         for (int k = 0; k < question_type.length; k++) {
-            if (checked_answers_text[k].equals(getString(R.string.answer_not_given)))                 // question/s NOT ANSWERED?
+            if (checked_answers_text[k].equals(getString(R.string.answer_not_given)))   // question/s NOT ANSWERED?
             {
                 all_questions = false;                                  // = false if at least one question have not an answer
-                // messageQuestionsNotAnswered += (k + 1) + ", ";
                 sb.append(k + 1).append(", ");
             }
         }
@@ -224,7 +318,6 @@ public class SecondActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 //Action for "Cancel"
                                 yesButton = false;
-
                             }
                         });
                 final AlertDialog alert = dialog.create();
@@ -247,7 +340,7 @@ public class SecondActivity extends AppCompatActivity {
             output = lEndTime - lStartTime;             // compute elapsed time as long in milliseconds
             getElapsedTime();                           // get elapsed time as a human-readable string
             quizResults();                              // prepare the quiz final score message
-            // Set the toast message duration
+            // Set the final toast message and duration
             mToastToShow = Toast.makeText(this, quizResultsMessage, Toast.LENGTH_LONG);
             // Set the countdown timer to display the toast message longer (7 sec. instead of 3.5 sec.)
             toastCountDown = new CountDownTimer(toastDurationInMilliSeconds, 1000 /*Tick duration*/) {
@@ -292,7 +385,6 @@ public class SecondActivity extends AppCompatActivity {
     // Method to prepare the quiz final score message
     private void quizResults() {
 
-        quizResultsMessage = getString(R.string.submit_success, name);
         quizResultsMessage = getString(R.string.submit_success, name) + " " + elapsedTime + "!";
         quizResultsMessage += "\n\n" + getString(R.string.your_score);
         quizResultsMessage += "\n- " + nrCorrectAnswers + " " + getString(R.string.nr_correct_answers) + " " + question_type.length;
@@ -305,20 +397,14 @@ public class SecondActivity extends AppCompatActivity {
         for (int i = 0; i < question_type.length; i++) {
             textView = findViewById(question_texts_ID[i]);          // get ID of question text
             questions_text[i] = textView.getText().toString();      // store question text
-            //messageSend += "\n\n   *** " + getString(R.string.question_nr) + (i + 1);
             sb.append("\n\n   *** ").append(getString(R.string.question_nr)).append(i + 1);
             if (answerStatus[i] == 0) {
-                //messageSend += " - " + getString(R.string.incorrect_answered) + " ***";
                 sb.append(" - ").append(getString(R.string.incorrect_answered)).append(" ***");
             } else {
-                //messageSend += " - " + getString(R.string.correct_answered) + " ***";
                 sb.append(" - ").append(getString(R.string.correct_answered)).append(" ***");
             }
-            //messageSend += "\n" + questions_text[i];
             sb.append("\n").append(questions_text[i]);
-            //messageSend += "\n- " + getString(R.string.selected_answer) + " " + checked_answers_text[i];
             sb.append("\n- ").append(getString(R.string.selected_answer)).append(" ").append(checked_answers_text[i]);
-            //messageSend += "\n- " + getString(R.string.correct_answer) + "  " + correct_answers_text[i];
             sb.append("\n- ").append(getString(R.string.correct_answer)).append("  ").append(correct_answers_text[i]);
         }
         messageSend = "" + sb;
@@ -327,22 +413,22 @@ public class SecondActivity extends AppCompatActivity {
     // Method to process Radio button question type
     private void processRadioButton(int x, int k) {
 
-        RadioButton radioButton = findViewById(correct_answers_ID[x]);     // get ID of correct answer
+        RadioButton radioButton_correct = findViewById(correct_answers_ID1[x]);     // get ID of correct answer
         ImageView imageView = findViewById(question_numbers_ID[k]);        // get ID of question number
         // Check if the correct answer is checked
-        if (radioButton.isChecked()) {
+        if (radioButton_correct.isChecked()) {
             // correct answer is checked
             nrCorrectAnswers++;
             answerStatus[k] = 1;
-            correct_answers_text[k] = radioButton.getText().toString();    // store the correct answer
-            imageView.setImageResource(R.drawable.ok);                 // set the ok check mark image on question number
+            correct_answers_text[k] = radioButton_correct.getText().toString();    // store the correct answer
+            imageView.setImageResource(R.drawable.ok);    // set the ok check mark image on question number
             imageView.setVisibility(View.VISIBLE);
         } else {
-            // incorrect answer is checked
+            // correct answer is not checked
             nrInCorrectAnswers++;
             answerStatus[k] = 0;
-            correct_answers_text[k] = radioButton.getText().toString();    // store the correct answer
-            imageView.setImageResource(R.drawable.notok);              // set the not ok mark image on question number
+            correct_answers_text[k] = radioButton_correct.getText().toString();    // store the correct answer
+            imageView.setImageResource(R.drawable.notok);   // set the not ok mark image on question number
             imageView.setVisibility(View.VISIBLE);
         }
         //check if the question has answer
@@ -350,7 +436,7 @@ public class SecondActivity extends AppCompatActivity {
         if (radio_group.getCheckedRadioButtonId() == -1) {
             // No answer
             nrAnswersNotGiven++;
-            checked_answers_text[k] = getString(R.string.answer_not_given);                   // store NOT ANSWERED
+            checked_answers_text[k] = getString(R.string.answer_not_given);    // store NOT ANSWERED
         } else {
             // Has answer
             checked_answers_text[k] = ((RadioButton) findViewById(radio_group.getCheckedRadioButtonId())).getText().toString();   // store the checked answer
@@ -360,57 +446,41 @@ public class SecondActivity extends AppCompatActivity {
     // Method to process Check box button question type
     private void processCheckBox(int i, int k) {
 
-        CheckBox checkBox1 = findViewById(answers_ID2[i][0]);     // get check box 1
-        CheckBox checkBox2 = findViewById(answers_ID2[i][1]);     // get check box 2
-        CheckBox checkBox3 = findViewById(answers_ID2[i][2]);     // get check box 3
-        CheckBox checkBox4 = findViewById(answers_ID2[i][3]);     // get check box 4
-        // store the checked answers
         int notAnswered = 1;
-        if (checkBox1.isChecked()) {
-            checked_answers_text[k] = "\n   - " + checkBox1.getText().toString();
-            notAnswered = 0;
-        }
-        if (checkBox2.isChecked()) {
-            checked_answers_text[k] += "\n   - " + checkBox2.getText().toString();
-            notAnswered = 0;
-        }
-        if (checkBox3.isChecked()) {
-            checked_answers_text[k] += "\n   - " + checkBox3.getText().toString();
-            notAnswered = 0;
-        }
-        if (checkBox4.isChecked()) {
-            checked_answers_text[k] += "\n   - " + checkBox4.getText().toString();
-            notAnswered = 0;
+        int checkedOk = 1;
+        checked_answers_text[k] = "\n";
+        correct_answers_text[k] = "\n";
+        for (int n = 0; n < 4; n++) {
+            CheckBox checkBox = findViewById(answers_ID2[i][n]);     // get check box n
+            // store the checked answers
+            if (checkBox.isChecked()) {
+                checked_answers_text[k] += "   - " + checkBox.getText().toString() + "\n";
+                notAnswered = 0;
+            }
+            // store the correct answers
+            if (checkBox.getTag().equals("true")) {
+                correct_answers_text[k] += "   - " + checkBox.getText().toString() + "\n";
+            }
+            // is checked or not checked correct?
+            if (!(checkBox.isChecked() == correct_answers_ID2[i][n])) {
+                checkedOk = 0;
+            }
         }
         if (notAnswered == 1) {
             // No answer given
             checked_answers_text[k] = getString(R.string.answer_not_given);
             nrAnswersNotGiven++;
         }
-        // store the correct answers
-        if (correct_answers_ID2[i][0]) {
-            correct_answers_text[k] = "\n   - " + checkBox1.getText().toString();
-        }
-        if (correct_answers_ID2[i][1]) {
-            correct_answers_text[k] += "\n   - " + checkBox2.getText().toString();
-        }
-        if (correct_answers_ID2[i][2]) {
-            correct_answers_text[k] += "\n   - " + checkBox3.getText().toString();
-        }
-        if (correct_answers_ID2[i][3]) {
-            correct_answers_text[k] += "\n   - " + checkBox4.getText().toString();
-        }
-        ImageView imageView = findViewById(question_numbers_ID[k]);        // get ID of question number
-        if ((checkBox1.isChecked() == correct_answers_ID2[i][0]) && (checkBox2.isChecked() == correct_answers_ID2[i][1]) &&
-                (checkBox3.isChecked() == correct_answers_ID2[i][2]) && (checkBox4.isChecked() == correct_answers_ID2[i][3])) {
+        ImageView imageView = findViewById(question_numbers_ID[k]);  // get ID of question number
+        if (checkedOk == 1) {
             // all correct answers are checked and incorrect are not checked
-            imageView.setImageResource(R.drawable.ok);                 // set the OK check mark image on question number
+            imageView.setImageResource(R.drawable.ok);  // set the OK check mark image on question number
             imageView.setVisibility(View.VISIBLE);
             nrCorrectAnswers++;
             answerStatus[k] = 1;
         } else {
             // not all correct answers are checked and incorrect are not checked
-            imageView.setImageResource(R.drawable.notok);              // set the NOT OK mark image on question number
+            imageView.setImageResource(R.drawable.notok); // set the NOT OK mark image on question number
             imageView.setVisibility(View.VISIBLE);
             nrInCorrectAnswers++;
             answerStatus[k] = 0;
@@ -430,7 +500,7 @@ public class SecondActivity extends AppCompatActivity {
             // Has answer
             checked_answers_text[k] = editText.getText().toString().toUpperCase();  // store the given answer
         }
-        correct_answers_text[k] = getString(correct_answers_ID3[j]);                // store the correct answer
+        correct_answers_text[k] = correctAnswer3[j];                // store the correct answer
         // Check if the correct answer is given
         if (editText.getText().toString().toUpperCase().trim().equals(correct_answers_text[k])) {
             // correct answer is given
@@ -446,5 +516,12 @@ public class SecondActivity extends AppCompatActivity {
             imageView.setVisibility(View.VISIBLE);
         }
     }
-}
 
+    // Method to get string from resources using its name from strings.xml
+    private String getStringResourceByName(String stringNameOfResource) {
+        String packageName = getPackageName();
+        int resId = getResources().getIdentifier(stringNameOfResource, "string", packageName);
+        return getString(resId);
+    }
+
+}

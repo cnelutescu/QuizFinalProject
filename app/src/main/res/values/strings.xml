@@ -72,6 +72,10 @@
       user's name. [CHAR LIMIT=NONE]
     -->
     <string name="submit_success"><xliff:g id="name" example="Amy">%s</xliff:g> you have submitted the quiz in </string>
+
+    <string name="error_in_xml">Error in second_activity.xml at question #<xliff:g id="nr" example="8">%s</xliff:g> tag is missing or incorrect</string>
+
+
     <string name="nr_correct_answers">correct answer/s out of</string>
     <string name="nr_incorrect_answers">incorrect answer/s out of</string>
     <string name="nr_not_answered">answer/s not given out of</string>

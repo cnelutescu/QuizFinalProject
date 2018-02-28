@@ -67,4 +67,5 @@
     <string name="time_expired">"A expirat timpul! Poți continua și finaliza testul (Submit) când dorești. "</string>
     <string name="warning_time_expire">Avertizare! Timpul alcat rezolvării testului va expira peste un minut.</string>
     <string name="quiz_started">Testul a început! Ai 10 minute să-l finalizezi (Submit quiz).</string>
+    <string name="error_in_xml">Eroare in second_activity la intrebarea nr. <xliff:g id="nr" example="8">%s</xliff:g> android:tag lipsește sau este incorect</string>
 </resources>
